@@ -1,17 +1,22 @@
 package com.mycompany.mina;
 
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 public class Employee extends Person {
-    private int startTime;
-    private int endTime;
 
+    private Date startTime;
+    private Date endTime;
 
-    public Employee(int startTime, int endTime, String name) {
-        super(name);
+    public Employee(Date startTime, Date endTime, String name, String id) {
+        super(name, id);
         this.startTime = startTime;
         this.endTime = endTime;
     }
- 
-    public int calculatedHoursWorked () {
-        return endTime - startTime;
+
+    public long calculatedHoursWorked() {
+        var diff = endTime.getTime() - startTime.getTime();
+        TimeUnit timeUnit = TimeUnit.HOURS;
+        return timeUnit.convert(diff, TimeUnit.MILLISECONDS);
     }
 }

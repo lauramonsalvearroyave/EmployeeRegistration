@@ -6,18 +6,22 @@ import java.util.Scanner;
 public class Vacation extends WorkNotice {
     
     @Override
-    public void process (){
+    public void process (int totalVacationDays){
     Scanner scanner = new Scanner(System.in);
 
         System.out.print("Ingrese la duración de las vacaciones (en días): ");
         int duration = scanner.nextInt();
-
-        if (duration >= 1 && duration <= 15) {
+        totalVacationDays+=duration;
+        if (totalVacationDays >= 1 && totalVacationDays <= 15) {
             System.out.println("Vacaciones procesadas exitosamente.");
         } else {
             System.out.println("Duración de vacaciones no válida.");
         }
 
-        scanner.close();
+    }
+
+    @Override
+    public void process(NoticeTotals totals) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -1,9 +1,9 @@
 package com.mycompany.mina;
 
 
-public class WorkNotice {
+public abstract class WorkNotice {
      
-    public void process (){
-    }
+    public abstract void process (NoticeTotals totals);
+    public abstract void process (int totalDays);
 
 }
